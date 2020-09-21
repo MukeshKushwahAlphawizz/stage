@@ -1,0 +1,34 @@
+import {Component, ViewChild} from '@angular/core';
+import { IonicPage, NavController } from 'ionic-angular';
+import {Tabs} from "ionic-angular/index";
+
+
+@IonicPage()
+@Component({
+  selector: 'page-tabs',
+  templateUrl: 'tabs.html'
+})
+export class TabsPage {
+  @ViewChild('tabs') tabRef: Tabs;
+
+  tab1Root: any = 'HomePage';
+  tab2Root: any = '';
+  tab3Root: any = '';
+  tab4Root: any = '';
+  tab5Root: any = '';
+
+  tab1Title = "Home";
+  tab2Title = "Inbox";
+  tab3Title = "Post";
+  tab4Title = "Search";
+  tab5Title = "Profile";
+  selectIndex: any = 0;
+
+  constructor(public navCtrl: NavController) {
+
+  }
+
+  centerTab() {
+    this.tabRef.select(2);
+  }
+}

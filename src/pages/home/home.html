@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-black" name="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center><img class="header-icon" src="assets/img/stage-header.png"></ion-title>
+    <ion-buttons end>
+      <button padding ion-button icon-only>
+        <ion-icon class="text-black" name="ios-notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div margin>
+    <ion-searchbar no-padding class="small-text"
+      [(ngModel)]="searchTxt"
+      [showCancelButton]="false"
+      (ionInput)="searchInput($event)"
+      (ionCancel)="searchCancel($event)">
+    </ion-searchbar>
+  </div>
+
+  <img src="assets/img/banner.png">
+  <div class="heading">Lorem Ipsum is sumply dummy text of the printing and typesetting is sumply dummy text of the printing and typesetting </div>
+  <ion-item margin-top no-lines>
+    <div class="medium-text bold-font">Top Categories</div>
+    <div item-right class="small-text text-pink">See All<span margin-left><ion-icon name="ios-arrow-forward"></ion-icon></span></div>
+  </ion-item>
+  <div>
+    <ion-slides slidesPerView="4.5">
+      <ion-slide>
+        <img class="slide-img" src="assets/img/slide1.png">
+        <div text-center class="text-black small-text bold-font">Music</div>
+      </ion-slide>
+      <ion-slide>
+        <img class="slide-img" src="assets/img/slide2.png">
+        <div text-center class="text-black small-text bold-font">Fashion</div>
+      </ion-slide>
+      <ion-slide>
+        <img class="slide-img" src="assets/img/slide3.png">
+        <div text-center class="text-black small-text bold-font">Shows</div>
+      </ion-slide>
+      <ion-slide>
+        <img class="slide-img" src="assets/img/slide4.png">
+        <div text-center class="text-black small-text bold-font">Support</div>
+      </ion-slide>
+      <ion-slide>
+        <img class="slide-img" src="assets/img/slide5.png">
+        <div text-center class="text-black small-text bold-font">Dance</div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-item margin-top no-lines>
+    <div class="medium-text bold-font">Projects</div>
+    <div item-right class="small-text text-pink">See All<span margin-left><ion-icon name="ios-arrow-forward"></ion-icon></span></div>
+  </ion-item>
+  <div>
+    <ion-slides slidesPerView="2.8">
+      <ion-slide>
+        <ion-card>
+          <div style="padding: 8px" text-left>
+            <div class="smallest-text bold-font">LOREM IPSUM IS</div>
+            <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
+            <div class="smaller-text bold-font text-yellow">IN PROGRESS</div>
+            <div class="row" margin-top>
+              <img class="small-user" src="assets/img/men.png">
+              <span style="margin-top: 6px; margin-left: 5px" class="smallest-text">Brayden aaron</span>
+            </div>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <div style="padding: 8px" text-left>
+            <div class="smallest-text bold-font">LOREM IPSUM IS</div>
+            <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
+            <div class="smaller-text bold-font text-green">COMPLETED</div>
+            <div class="row" margin-top>
+              <img class="small-user" src="assets/img/women.png">
+              <span style="margin-top: 6px; margin-left: 5px" class="smallest-text">Brayden aaron</span>
+            </div>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <div style="padding: 8px" text-left>
+            <div class="smallest-text bold-font">LOREM IPSUM IS</div>
+            <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
+            <div class="smaller-text bold-font text-yellow">IN PROGRESS</div>
+            <div class="row" margin-top>
+              <img class="small-user" src="assets/img/men2.png">
+              <span style="margin-top: 6px; margin-left: 5px" class="smallest-text">Brayden aaron</span>
+            </div>
+          </div>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div margin class="medium-text bold-font">Upcoming Events</div>
+  <div>
+    <ion-tabs>
+      <ion-tab [tabTitle]=""></ion-tab>
+      <ion-tab [tabTitle]=""></ion-tab>
+      <ion-tab [tabTitle]=""></ion-tab>
+    </ion-tabs>
+  </div>
+</ion-content>

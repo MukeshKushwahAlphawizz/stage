@@ -1,0 +1,38 @@
+page-home {
+  .searchbar .searchbar-search-icon {
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    color: grey;
+  }
+  .searchbar .searchbar-input{
+    padding: 0 55px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background: #F2F2F2;
+  }
+  .searchbar-ios{
+    background: #F2F2F2;
+    border-radius: 10px;
+    min-height: 35px;
+  }
+  .heading{
+    margin-top: -65pt;
+    font-size: 1.2rem;
+    color: white;
+    padding: 20pt;
+    text-align: center;
+  }
+  .slide-img{
+    width: 80%;
+  }
+  .text-yellow{
+    color: yellow;
+  }
+  .text-green{
+    color: green;
+  }
+  .small-user{
+    height: 15pt;width: 15pt;object-fit: cover;border-radius: 5px;
+  }
+}
