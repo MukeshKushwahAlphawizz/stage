@@ -102,12 +102,188 @@
       </ion-slide>
     </ion-slides>
   </div>
+
   <div margin class="medium-text bold-font">Upcoming Events</div>
+  <div margin>
+    <ion-slides slidesPerView="6.5">
+      <ion-slide *ngFor="let day of weekList">
+        <div class="smallest-text" (click)="selectDay(day)" [ngClass]="day.isSelected?'todayDate':''">{{day.name}}</div>
+      </ion-slide>
+    </ion-slides>
+  </div>
   <div>
-    <ion-tabs>
-      <ion-tab [tabTitle]=""></ion-tab>
-      <ion-tab [tabTitle]=""></ion-tab>
-      <ion-tab [tabTitle]=""></ion-tab>
-    </ion-tabs>
+    <ion-slides slidesPerView="2.1">
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <ion-item no-padding>
+            <img class="event-banner" item-left no-margin src="assets/img/banner.png">
+            <div>
+              <div text-wrap class="smallest-text bold-font">Lorem Ipsum is the dummy text of the</div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="ios-clock-outline"></ion-icon><span style="margin-left: 5px" class="smallest-text">7:30 pm</span></div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="pin"></ion-icon><span style="margin-left: 5px" class="smallest-text">Location here</span></div>
+            </div>
+          </ion-item>
+          <button class="smaller-text" small no-margin ion-button full>Book Ticket</button>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <ion-item no-padding>
+            <img class="event-banner" item-left no-margin src="assets/img/banner.png">
+            <div>
+              <div text-wrap class="smallest-text bold-font">Lorem Ipsum is the dummy text of the</div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="ios-clock-outline"></ion-icon><span style="margin-left: 5px" class="smallest-text">7:30 pm</span></div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="pin"></ion-icon><span style="margin-left: 5px" class="smallest-text">Location here</span></div>
+            </div>
+          </ion-item>
+          <button class="smaller-text" small no-margin ion-button full>Book Ticket</button>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <ion-item no-padding>
+            <img class="event-banner" item-left no-margin src="assets/img/banner.png">
+            <div>
+              <div text-wrap class="smallest-text bold-font">Lorem Ipsum is the dummy text of the</div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="ios-clock-outline"></ion-icon><span style="margin-left: 5px" class="smallest-text">7:30 pm</span></div>
+              <div><ion-icon class="smaller-text text-pink bold-font" name="pin"></ion-icon><span style="margin-left: 5px" class="smallest-text">Location here</span></div>
+            </div>
+          </ion-item>
+          <button class="smaller-text" small no-margin ion-button full>Book Ticket</button>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div margin class="medium-text bold-font">Space Ror Rent</div>
+  <div>
+    <ion-slides slidesPerView="2.2">
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/rent-banner.png">
+          <div text-left style="margin: 5px">
+            <div class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/rent-banner.png">
+          <div text-left style="margin: 5px">
+            <div class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/rent-banner.png">
+          <div text-left style="margin: 5px">
+            <div class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div margin class="medium-text bold-font">Equipment Ror Rent</div>
+  <div style="margin-bottom: 25pt">
+    <ion-slides slidesPerView="2.2">
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/equipment-banner.png">
+          <div style="margin: 5px">
+            <div text-left class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="row text-grey smallest-text">
+              <div col-5 text-left>
+                <div>Per Hours</div>
+                <div>Per Day</div>
+                <div>Per Month</div>
+              </div>
+              <div col-6 text-right>
+                <div>$90</div>
+                <div>$900</div>
+                <div>$2000</div>
+              </div>
+              <div col-1></div>
+            </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/equipment-banner.png">
+          <div style="margin: 5px">
+            <div text-left class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="row text-grey smallest-text">
+              <div col-5 text-left>
+                <div>Per Hours</div>
+                <div>Per Day</div>
+                <div>Per Month</div>
+              </div>
+              <div col-6 text-right>
+                <div>$90</div>
+                <div>$900</div>
+                <div>$2000</div>
+              </div>
+              <div col-1></div>
+            </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card no-padding style="border-radius: 10px">
+          <img class="rent-banner" src="assets/img/equipment-banner.png">
+          <div style="margin: 5px">
+            <div text-left class="smallest-text bold-font">Lorem ipsum dummy text of the</div>
+            <div class="row text-grey smallest-text">
+              <div col-5 text-left>
+                <div>Per Hours</div>
+                <div>Per Day</div>
+                <div>Per Month</div>
+              </div>
+              <div col-6 text-right>
+                <div>$90</div>
+                <div>$900</div>
+                <div>$2000</div>
+              </div>
+              <div col-1></div>
+            </div>
+          </div>
+          <div text-right>
+            <button ion-button small clear class="smallest-text">
+              View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
   </div>
 </ion-content>

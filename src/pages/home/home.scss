@@ -24,7 +24,10 @@ page-home {
     text-align: center;
   }
   .slide-img{
-    width: 80%;
+    width: 50pt;
+    height: 50pt;
+    border-radius: 50%;
+    object-fit: cover;
   }
   .text-yellow{
     color: yellow;
@@ -34,5 +37,23 @@ page-home {
   }
   .small-user{
     height: 15pt;width: 15pt;object-fit: cover;border-radius: 5px;
+  }
+  .todayDate{
+    color: #EC5368;
+  }
+  .event-banner{
+    height: 45pt;
+    width: 45pt;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 5px!important;
+  }
+  .rent-banner{
+    height: 60pt;
+    width: 100%;
+    object-fit: cover;
+  }
+  ion-card {
+    border-radius: 10px !important;
   }
 }

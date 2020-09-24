@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button padding no-margin ion-button icon-only menuToggle>
+        <ion-icon class="text-black" name="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center><img class="header-icon" src="assets/img/stage-header.png"></ion-title>
+    <ion-buttons end>
+      <button padding ion-button icon-only>
+        <ion-icon class="text-black" name="ios-notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item no-lines>
+    <ion-searchbar no-padding class="small-text"
+                   [(ngModel)]="searchTxt"
+                   [showCancelButton]="false"
+                   (ionInput)="searchInput($event)"
+                   (ionCancel)="searchCancel($event)">
+    </ion-searchbar>
+    <ion-icon item-right no-margin class="filter" name="ios-options"></ion-icon>
+  </ion-item>
+  <div margin text-center class="bigger-text bold-font">What is Lorem Ipsum</div>
+
+  <div padding-left padding-right>
+    <div class="segment-div row" text-center margin-top margin-left margin-right>
+      <div (click)="selectProject()" class="left small-text" [ngClass]="!isFreeLancerSelected?'selected-left':''" col-6>Project</div>
+      <div (click)="selectFreelancer()" class="right small-text" [ngClass]="isFreeLancerSelected?'selected-left':''" col-6>Freelancer</div>
+    </div>
+  </div>
+  <div margin-bottom padding-bottom *ngIf="!isFreeLancerSelected">
+    <div margin>
+      <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
+      <ion-item no-lines>
+        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
+        <button class="smaller-text" item-right ion-button round small>View Project</button>
+      </ion-item>
+    </div>
+    <div class="saperator"></div>
+
+    <div margin>
+      <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
+      <ion-item no-lines>
+        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
+        <button class="smaller-text" item-right ion-button round small>View Project</button>
+      </ion-item>
+    </div>
+    <div class="saperator"></div>
+
+    <div margin>
+      <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
+      <ion-item no-lines>
+        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
+        <button class="smaller-text" item-right ion-button round small>View Project</button>
+      </ion-item>
+    </div>
+    <div class="saperator"></div>
+
+    <div margin>
+      <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
+      <ion-item no-lines>
+        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
+        <button class="smaller-text" item-right ion-button round small>View Project</button>
+      </ion-item>
+    </div>
+    <div class="saperator"></div>
+
+    <div margin>
+      <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
+      <ion-item no-lines>
+        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
+        <button class="smaller-text" item-right ion-button round small>View Project</button>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="isFreeLancerSelected">
+  </div>
+</ion-content>

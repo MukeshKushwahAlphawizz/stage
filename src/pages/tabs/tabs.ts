@@ -12,10 +12,10 @@ export class TabsPage {
   @ViewChild('tabs') tabRef: Tabs;
 
   tab1Root: any = 'HomePage';
-  tab2Root: any = '';
+  tab2Root: any = 'InboxPage';
   tab3Root: any = '';
-  tab4Root: any = '';
-  tab5Root: any = '';
+  tab4Root: any = 'SearchPage';
+  tab5Root: any = 'ProfilePage';
 
   tab1Title = "Home";
   tab2Title = "Inbox";
