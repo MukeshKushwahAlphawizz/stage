@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../providers";
 import {ViewController} from "ionic-angular/index";
+import {UtilProvider} from "../../providers/util/util";
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ export class SignupPage {
   error_messages: any = {};
   constructor(public navCtrl: NavController,
               public user: User,
+              public util: UtilProvider,
               public viewCtrl: ViewController,
               public formBuilder: FormBuilder) {
     this.setupLoginFormData();
@@ -75,6 +77,13 @@ export class SignupPage {
   }
 
   signUp() {
+    /*{
+    "username":"Ratan Singh",
+    "password":"123456",
+    "mobile":"7869608691",
+    "email":"ratans158@gmail.com"
+}*/
+
     this.navCtrl.setRoot('MenuPage');
   }
 

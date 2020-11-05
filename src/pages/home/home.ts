@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import moment from "moment";
+import {App} from "ionic-angular/index";
 
 @IonicPage()
 @Component({
@@ -11,7 +12,9 @@ export class HomePage {
   searchTxt: any;
   weekList:any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public app: App,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -37,16 +40,6 @@ export class HomePage {
         })
       }
     }
-    console.log(this.weekList);
-  }
-
-
-  searchInput($event: UIEvent) {
-
-  }
-
-  searchCancel($event: UIEvent) {
-
   }
 
   getToday(day) {
@@ -67,5 +60,45 @@ export class HomePage {
         item.isSelected = false;
       }
     })
+  }
+
+  searchInput($event: UIEvent) {
+
+  }
+
+  searchCancel($event: UIEvent) {
+
+  }
+
+  openCategory(type: string) {
+    this.navCtrl.push('CategoryListPage',{categoryType:type})
+  }
+
+  openAllProjects() {
+    this.navCtrl.push('ProjectListPage');
+  }
+
+  openAllCategories() {
+    this.navCtrl.push('AllCategoriesPage');
+  }
+
+  openNotification() {
+    this.navCtrl.push('NotificationPage');
+  }
+
+  openProjectInner(status: string) {
+    this.app.getRootNav().push('ProjectInnerPage',{status:status});
+  }
+
+  eventDetail() {
+    this.app.getRootNav().push('EventDetailPage');
+  }
+
+  spaceDetail() {
+    this.app.getRootNav().push('SpaceDetailPage');
+  }
+
+  equipmentDetail() {
+    this.app.getRootNav().push('EquipmentDetailPage');
   }
 }

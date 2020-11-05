@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App} from "ionic-angular/index";
 
 /**
  * Generated class for the InboxPage page.
@@ -15,11 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InboxPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public app: App,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InboxPage');
   }
 
+  /*openChat() {
+    this.navCtrl.setRoot('ChatPage');
+  }*/
+  openChat() {
+    this.app.getRootNav().push('ChatPage');
+  }
 }

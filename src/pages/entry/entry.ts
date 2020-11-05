@@ -13,11 +13,10 @@ export class EntryPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EntryPage');
   }
 
   openSignUp() {
-    this.navCtrl.setRoot('SignUpPage');
+    this.navCtrl.setRoot('SignupPage');
   }
 
   openLogin() {

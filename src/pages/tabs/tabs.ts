@@ -30,5 +30,6 @@ export class TabsPage {
 
   centerTab() {
     this.tabRef.select(2);
+    this.navCtrl.push('AddPostPage');
   }
 }

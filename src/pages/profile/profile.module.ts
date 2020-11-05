@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { ProfilePage } from './profile';
 import {NgCircleProgressModule} from "ng-circle-progress";
 import {StarRatingModule} from "ionic3-star-rating";
+import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
   declarations: [
@@ -13,12 +14,13 @@ import {StarRatingModule} from "ionic3-star-rating";
     NgCircleProgressModule.forRoot({
       "space": -5,
       "animateTitle": false,
-      "animationDuration": 1000,
+      "animationDuration": 300,
       "showUnits": true,
       "showBackground": false,
       "clockwise": true,
     }),
-    StarRatingModule
+    StarRatingModule,
+    ComponentsModule
   ],
 })
 export class ProfilePageModule {}

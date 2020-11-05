@@ -15,31 +15,31 @@
 </ion-header>
 
 <ion-content>
-  <ion-item no-lines>
-    <ion-searchbar no-padding class="small-text"
-                   [(ngModel)]="searchTxt"
-                   [showCancelButton]="false"
-                   (ionInput)="searchInput($event)"
-                   (ionCancel)="searchCancel($event)">
-    </ion-searchbar>
-    <ion-icon item-right no-margin class="filter" name="ios-options"></ion-icon>
-  </ion-item>
+  <div padding-left padding-right>
+    <ion-item no-lines style="padding-left: 8pt">
+      <ion-searchbar no-padding class="small-text"
+                     [(ngModel)]="searchTxt"
+                     [showCancelButton]="false"
+                     (ionInput)="searchInput($event)"
+                     (ionCancel)="searchCancel($event)">
+      </ion-searchbar>
+      <ion-icon item-right no-margin class="filter" name="ios-options"></ion-icon>
+    </ion-item>
+  </div>
+
   <div margin text-center class="bigger-text bold-font">What is Lorem Ipsum</div>
 
   <div padding-left padding-right>
-    <div class="segment-div row" text-center margin-top margin-left margin-right>
-      <div (click)="selectProject()" class="left small-text" [ngClass]="!isFreeLancerSelected?'selected-left':''" col-6>Project</div>
-      <div (click)="selectFreelancer()" class="right small-text" [ngClass]="isFreeLancerSelected?'selected-left':''" col-6>Freelancer</div>
-    </div>
+    <round-segment (output)="selectSegment($event)" leftTitle="Projects" rightTitle="Freelancers"></round-segment>
   </div>
   <div margin-bottom padding-bottom *ngIf="!isFreeLancerSelected">
     <div margin>
       <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
       <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
       <ion-item no-lines>
-        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
-        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
-        <button class="smaller-text" item-right ion-button round small>View Project</button>
+        <div class="smaller-text"><ion-icon class="text-pink bold-font" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink"><ion-icon class="usd" name="logo-usd"></ion-icon></span><span style="margin-left: 5pt">$25.00</span></div>
+        <button (click)="openProject()" class="smaller-text" item-right ion-button round small>View Project</button>
       </ion-item>
     </div>
     <div class="saperator"></div>
@@ -48,9 +48,9 @@
       <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
       <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
       <ion-item no-lines>
-        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
-        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
-        <button class="smaller-text" item-right ion-button round small>View Project</button>
+        <div class="smaller-text"><ion-icon class="text-pink bold-font" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink"><ion-icon class="usd" name="logo-usd"></ion-icon></span><span style="margin-left: 5pt">$25.00</span></div>
+        <button (click)="openProject()" class="smaller-text" item-right ion-button round small>View Project</button>
       </ion-item>
     </div>
     <div class="saperator"></div>
@@ -59,9 +59,9 @@
       <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
       <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
       <ion-item no-lines>
-        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
-        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
-        <button class="smaller-text" item-right ion-button round small>View Project</button>
+        <div class="smaller-text"><ion-icon class="text-pink bold-font" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink"><ion-icon class="usd" name="logo-usd"></ion-icon></span><span style="margin-left: 5pt">$25.00</span></div>
+        <button (click)="openProject()" class="smaller-text" item-right ion-button round small>View Project</button>
       </ion-item>
     </div>
     <div class="saperator"></div>
@@ -70,9 +70,9 @@
       <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
       <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
       <ion-item no-lines>
-        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
-        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
-        <button class="smaller-text" item-right ion-button round small>View Project</button>
+        <div class="smaller-text"><ion-icon class="text-pink bold-font" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink"><ion-icon class="usd" name="logo-usd"></ion-icon></span><span style="margin-left: 5pt">$25.00</span></div>
+        <button (click)="openProject()" class="smaller-text" item-right ion-button round small>View Project</button>
       </ion-item>
     </div>
     <div class="saperator"></div>
@@ -81,12 +81,116 @@
       <div text-wrap margin-left margin-right class="medium-text bold-font">What is Lorem Ipsum</div>
       <div style="margin-top: 5pt" text-wrap margin-left margin-right class="smaller-text text-grey">What is Lorem Ipsum is simply dummy text of the printing and typesetting printing and industry. Th industry standard is dummy dummy</div>
       <ion-item no-lines>
-        <div class="smaller-text"><ion-icon class="text-pink" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
-        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink">$</span><span style="margin-left: 5pt">$25.00</span></div>
-        <button class="smaller-text" item-right ion-button round small>View Project</button>
+        <div class="smaller-text"><ion-icon class="text-pink bold-font" name="ios-time-outline"></ion-icon><span style="margin-left: 5pt">Close in 4 Days</span></div>
+        <div style="margin-top: 5pt" class="smaller-text"><span class="text-pink"><ion-icon class="usd" name="logo-usd"></ion-icon></span><span style="margin-left: 5pt">$25.00</span></div>
+        <button (click)="openProject()" class="smaller-text" item-right ion-button round small>View Project</button>
       </ion-item>
     </div>
   </div>
   <div *ngIf="isFreeLancerSelected">
+    <div padding>
+      <ion-item no-lines>
+        <img class="freelancer-img" item-left src="assets/img/men.png">
+        <div item-start>
+          <div class="small-text bold-font">Brayden aaron</div>
+          <div style="margin-top: 5px" class="text-pink normal-font bold-font smaller-text">$580/Hour</div>
+        </div>
+        <ion-icon item-right name="ios-arrow-forward"></ion-icon>
+      </ion-item>
+      <div class="row" style="margin-left: 45pt;margin-top: -3pt">
+        <span class="rating-count smaller-text">5.0</span>
+        <span style="margin-left: 5px">
+          <ionic3-star-rating activeIcon = "ios-star"
+                                              defaultIcon = "ios-star-outline"
+                                              activeColor = "#F29529"
+                                              defaultColor = "#f4f4f4"
+                                              readonly="true"
+                                              rating="5"
+                                              fontSize = "32px">
+          </ionic3-star-rating>
+        </span>
+        <span class="smaller-text text-grey normal-font" style="padding: 5pt">[180 reviews]</span>
+      </div>
+    </div>
+    <div class="saperator"></div>
+
+    <div padding>
+      <ion-item no-lines>
+        <img class="freelancer-img" item-left src="assets/img/men.png">
+        <div item-start>
+          <div class="small-text bold-font">Brayden aaron</div>
+          <div style="margin-top: 5px" class="text-pink normal-font bold-font smaller-text">$580/Hour</div>
+        </div>
+        <ion-icon item-right name="ios-arrow-forward"></ion-icon>
+      </ion-item>
+      <div class="row" style="margin-left: 45pt">
+        <span class="rating-count smaller-text">5.0</span>
+        <span style="margin-left: 5px">
+          <ionic3-star-rating activeIcon = "ios-star"
+                              defaultIcon = "ios-star-outline"
+                              activeColor = "#F29529"
+                              defaultColor = "#f4f4f4"
+                              readonly="true"
+                              rating="5"
+                              fontSize = "32px">
+          </ionic3-star-rating>
+        </span>
+        <span class="smaller-text text-grey normal-font" style="padding: 5pt">[180 reviews]</span>
+      </div>
+    </div>
+    <div class="saperator"></div>
+
+    <div padding>
+      <ion-item no-lines>
+        <img class="freelancer-img" item-left src="assets/img/men.png">
+        <div item-start>
+          <div class="small-text bold-font">Brayden aaron</div>
+          <div style="margin-top: 5px" class="text-pink normal-font bold-font smaller-text">$580/Hour</div>
+        </div>
+        <ion-icon item-right name="ios-arrow-forward"></ion-icon>
+      </ion-item>
+      <div class="row" style="margin-left: 45pt">
+        <span class="rating-count smaller-text">5.0</span>
+        <span style="margin-left: 5px">
+          <ionic3-star-rating activeIcon = "ios-star"
+                              defaultIcon = "ios-star-outline"
+                              activeColor = "#F29529"
+                              defaultColor = "#f4f4f4"
+                              readonly="true"
+                              rating="5"
+                              fontSize = "32px">
+          </ionic3-star-rating>
+        </span>
+        <span class="smaller-text text-grey normal-font" style="padding: 5pt">[180 reviews]</span>
+      </div>
+    </div>
+    <div class="saperator"></div>
+
+    <div padding margin-bottom>
+      <ion-item no-lines>
+        <img class="freelancer-img" item-left src="assets/img/men.png">
+        <div item-start>
+          <div class="small-text bold-font">Brayden aaron</div>
+          <div style="margin-top: 5px" class="text-pink normal-font bold-font smaller-text">$580/Hour</div>
+        </div>
+        <ion-icon item-right name="ios-arrow-forward"></ion-icon>
+      </ion-item>
+      <div class="row" style="margin-left: 45pt">
+        <span class="rating-count smaller-text">5.0</span>
+        <span style="margin-left: 5px">
+          <ionic3-star-rating activeIcon = "ios-star"
+                              defaultIcon = "ios-star-outline"
+                              activeColor = "#F29529"
+                              defaultColor = "#f4f4f4"
+                              readonly="true"
+                              rating="5"
+                              fontSize = "32px">
+          </ionic3-star-rating>
+        </span>
+        <span class="smaller-text text-grey normal-font" style="padding: 5pt">[180 reviews]</span>
+      </div>
+    </div>
+
+
   </div>
 </ion-content>

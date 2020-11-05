@@ -19,22 +19,6 @@ page-profile {
     padding: 0 12px;
   }
 
-  .segment-div{
-    border-radius: 20px;
-    border: 1px solid #EC5368;
-  }
-  .left{
-    border-radius: 20px 0 0 20px;
-    color: #EC5368;padding: 6pt;
-  }
-  .right{
-    border-radius: 0 20px 20px 0;
-    color: #EC5368;padding: 6pt;
-  }
-  .selected-left{
-    background: #EC5368;
-    color: white;
-  }
   ion-card{
     border-radius: 10px !important;
   }
@@ -47,14 +31,17 @@ page-profile {
     height: 25pt;width: 25pt;object-fit: cover;border-radius: 5px;
   }
   .rating-count{
-    background: #F29529;color: white;padding: 5pt;border-radius: 5px;
+    background: #F29529;color: white;padding: 2pt 6pt;border-radius: 5px;margin-top: 2pt;
   }
   .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0]{
-    height: 22px !important;width: 22px !important;
+    height: 20px !important;width: 20px !important;
     margin: 0;
     ion-icon{
-      font-size: 22px !important;
+      font-size: 20px !important;
       padding: 0;
     }
+  }
+  .left-margin{
+    margin-left: 5pt;
   }
 }

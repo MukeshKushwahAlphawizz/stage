@@ -14,19 +14,19 @@ page-login {
   .input-div{
     background: white;
     border-radius: 10px;
-    margin: 10pt 20pt;
+    margin: 10pt 20pt 20pt 10pt;
     padding: 0pt 15pt 20pt 10pt;
   }
   ion-item{
     background: transparent !important;
   }
   .login-btn{
-    padding: 0 30pt;margin-top: 15pt;
+    padding: 0 45pt;margin-top: 15pt;font-weight: bold;
   }
   .forgot-pass{
     margin-top: 15pt;
   }
   .top-margin{
-    margin-top: 25pt;
+    margin-top: 28pt;
   }
 }

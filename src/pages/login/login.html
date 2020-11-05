@@ -1,5 +1,5 @@
 <ion-content class="set-bg" text-center>
-  <div>
+  <div style="margin-bottom: 50pt">
     <img class="stage-icon" src="assets/img/stage-header.png">
     <div class="login big-text bold-font">Log In</div>
     <form padding [formGroup]="loginForm">
@@ -29,7 +29,7 @@
           </ng-container>
         </div>
       </div>
-      <button  class="login-btn small-text" (click)="login()" ion-button round>Log In</button>
+      <button class="login-btn small-text" (click)="login()" ion-button round>Log In</button>
       <div (click)="forgotPassword()" class="small-text forgot-pass underline">Forgot Password?</div>
     </form>
     <div class="social-div top-margin">
@@ -37,7 +37,7 @@
       <span margin-left margin-right><img class="social-icon" src="assets/img/insta.png"></span>
       <span><img class="social-icon" src="assets/img/twitter.png"></span>
     </div>
-    <div class="medium-text bold-font top-margin">You Don't Have An Account?</div>
+    <div padding-top class="medium-text bold-font top-margin">You Don't Have An Account?</div>
     <div (click)="signUp()" margin-bottom class="underline text-pink big-text bold-font">Register</div>
   </div>
 </ion-content>

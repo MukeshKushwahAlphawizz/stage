@@ -8,32 +8,30 @@
     <div text-center class="profile-img-div"><img class="profile-img" src="assets/img/men2.png"></div>
   </div>
 
-  <div padding>
+  <div padding-left padding-right>
     <ion-item no-lines>
       <div>
         <div class="big-text bold-font">Brayden aaron</div>
         <div style="margin-top: 5px" class="text-grey smaller-text">Lorem ipsum is simply</div>
       </div>
-      <button class="smallest-text edit-btn" no-padding item-right ion-button small round>Edit Profile<span style="padding-left: 5px"><ion-icon name="md-create"></ion-icon></span></button>
+      <button (click)="editProfile()" class="smallest-text edit-btn" no-padding item-right ion-button small round>Edit Profile<span style="padding-left: 5px"><ion-icon name="md-create"></ion-icon></span></button>
     </ion-item>
 
-    <div class="segment-div row" text-center margin-top margin-left margin-right>
-      <div (click)="selectProfile()" class="left small-text" [ngClass]="!isReviewSelected?'selected-left':''" col-6>Profile</div>
-      <div (click)="selectReview()" class="right small-text" [ngClass]="isReviewSelected?'selected-left':''" col-6>Reviews</div>
-    </div>
+    <round-segment margin-left margin-right (output)="selectSegment($event)" leftTitle="Profile" rightTitle="Reviews"></round-segment>
+
   </div>
 
   <div *ngIf="!isReviewSelected">
-    <div margin padding>
+    <div margin-left margin-right padding>
       <div class="big-text bold-font">About</div>
-      <div text-wrap style="margin-top: 5pt" class="text-grey smaller-text">Lorem ipsum is simply dummy text of printing and typesetting industry.Lorem ipsum is simply dummy text of printing ever since the 1500$, when an unlock printer took a gallary...
+      <div text-wrap style="margin-top: 5pt" class="text-grey smaller-text">Lorem ipsum is simply dummy text of printing and typesetting industry.Lorem ipsum is simply dummy text of printing ever is simply dummy text of printing ever since the 1500$, when an unlock printer took a gallary...
         <span class="text-pink" style="margin-left: 5pt">Read More</span></div>
     </div>
-    <div margin class="row" text-center>
+    <div style="padding-left: 8pt" margin class="row" text-center>
       <div col-3>
         <circle-progress
           [percent]="100"
-          [radius]="35"
+          [radius]="32"
           [outerStrokeWidth]="5"
           [innerStrokeWidth]="5"
           [outerStrokeColor]="'#EC5368'"
@@ -41,7 +39,6 @@
           [animation]="true"
           [subtitleFontSize]="30"
           [showSubtitle]="false"
-          [animationDuration]="300"
           [showUnits]="true"
           [titleColor]="'#EC5368'">
         </circle-progress>
@@ -51,7 +48,7 @@
       <div col-3>
         <circle-progress
           [percent]="100"
-          [radius]="35"
+          [radius]="32"
           [outerStrokeWidth]="5"
           [innerStrokeWidth]="5"
           [outerStrokeColor]="'#EC5368'"
@@ -59,7 +56,6 @@
           [animation]="true"
           [subtitleFontSize]="30"
           [showSubtitle]="false"
-          [animationDuration]="300"
           [showUnits]="true"
           [titleColor]="'#EC5368'">
         </circle-progress>
@@ -69,7 +65,7 @@
       <div col-3>
         <circle-progress
           [percent]="100"
-          [radius]="35"
+          [radius]="32"
           [outerStrokeWidth]="5"
           [innerStrokeWidth]="5"
           [outerStrokeColor]="'#EC5368'"
@@ -77,7 +73,6 @@
           [animation]="true"
           [subtitleFontSize]="30"
           [showSubtitle]="false"
-          [animationDuration]="300"
           [showUnits]="true"
           [titleColor]="'#EC5368'">
         </circle-progress>
@@ -87,7 +82,7 @@
       <div col-3>
         <circle-progress
           [percent]="34"
-          [radius]="35"
+          [radius]="32"
           [outerStrokeWidth]="5"
           [innerStrokeWidth]="5"
           [outerStrokeColor]="'#EC5368'"
@@ -103,7 +98,7 @@
       </div>
     </div>
     <div margin-left padding-left class="big-text bold-font">Portfolio</div>
-    <div margin-bottom padding-bottom>
+    <div style="padding-left: 5pt" margin-bottom padding-bottom>
       <ion-slides slidesPerView="2.9">
         <ion-slide margin-left>
           <ion-card>
@@ -140,12 +135,12 @@
         <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
         <div>
           <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> . 15 min ago</div>
+          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
         </div>
       </ion-item>
       <div class="row">
         <span class="rating-count small-text">5.0</span>
-        <span margin-left><ionic3-star-rating activeIcon = "ios-star"
+        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
                             defaultIcon = "ios-star-outline"
                             activeColor = "#F29529"
                             defaultColor = "#f4f4f4"
@@ -163,12 +158,12 @@
         <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
         <div>
           <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> . 15 min ago</div>
+          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
         </div>
       </ion-item>
       <div class="row">
         <span class="rating-count small-text">5.0</span>
-        <span margin-left><ionic3-star-rating activeIcon = "ios-star"
+        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
                                               defaultIcon = "ios-star-outline"
                                               activeColor = "#F29529"
                                               defaultColor = "#f4f4f4"
@@ -186,12 +181,12 @@
         <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
         <div>
           <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> . 15 min ago</div>
+          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
         </div>
       </ion-item>
       <div class="row">
         <span class="rating-count small-text">5.0</span>
-        <span margin-left><ionic3-star-rating activeIcon = "ios-star"
+        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
                                               defaultIcon = "ios-star-outline"
                                               activeColor = "#F29529"
                                               defaultColor = "#f4f4f4"
@@ -209,12 +204,12 @@
         <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
         <div>
           <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> . 15 min ago</div>
+          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
         </div>
       </ion-item>
       <div class="row">
         <span class="rating-count small-text">5.0</span>
-        <span margin-left><ionic3-star-rating activeIcon = "ios-star"
+        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
                                               defaultIcon = "ios-star-outline"
                                               activeColor = "#F29529"
                                               defaultColor = "#f4f4f4"

@@ -6,7 +6,7 @@
       </button>
     </ion-buttons>
     <ion-title text-center><img class="header-icon" src="assets/img/stage-header.png"></ion-title>
-    <ion-buttons end>
+    <ion-buttons end (click)="openNotification()">
       <button padding ion-button icon-only>
         <ion-icon class="text-black" name="ios-notifications-outline"></ion-icon>
       </button>
@@ -26,25 +26,25 @@
 
   <img src="assets/img/banner.png">
   <div class="heading">Lorem Ipsum is sumply dummy text of the printing and typesetting is sumply dummy text of the printing and typesetting </div>
-  <ion-item margin-top no-lines>
+  <ion-item (click)="openAllCategories()" margin-top no-lines>
     <div class="medium-text bold-font">Top Categories</div>
     <div item-right class="small-text text-pink">See All<span margin-left><ion-icon name="ios-arrow-forward"></ion-icon></span></div>
   </ion-item>
   <div>
     <ion-slides slidesPerView="4.5">
-      <ion-slide>
+      <ion-slide (click)="openCategory('Music')">
         <img class="slide-img" src="assets/img/slide1.png">
         <div text-center class="text-black small-text bold-font">Music</div>
       </ion-slide>
-      <ion-slide>
+      <ion-slide (click)="openCategory('Fashion')">
         <img class="slide-img" src="assets/img/slide2.png">
         <div text-center class="text-black small-text bold-font">Fashion</div>
       </ion-slide>
-      <ion-slide>
+      <ion-slide (click)="openCategory('Shows')">
         <img class="slide-img" src="assets/img/slide3.png">
         <div text-center class="text-black small-text bold-font">Shows</div>
       </ion-slide>
-      <ion-slide>
+      <ion-slide (click)="openCategory('Support')">
         <img class="slide-img" src="assets/img/slide4.png">
         <div text-center class="text-black small-text bold-font">Support</div>
       </ion-slide>
@@ -55,14 +55,14 @@
     </ion-slides>
   </div>
 
-  <ion-item margin-top no-lines>
+  <ion-item (click)="openAllProjects()" margin-top no-lines>
     <div class="medium-text bold-font">Projects</div>
     <div item-right class="small-text text-pink">See All<span margin-left><ion-icon name="ios-arrow-forward"></ion-icon></span></div>
   </ion-item>
   <div>
     <ion-slides slidesPerView="2.8">
       <ion-slide>
-        <ion-card>
+        <ion-card (click)="openProjectInner('InProgress')">
           <div style="padding: 8px" text-left>
             <div class="smallest-text bold-font">LOREM IPSUM IS</div>
             <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
@@ -75,7 +75,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
+        <ion-card (click)="openProjectInner('Completed')">
           <div style="padding: 8px" text-left>
             <div class="smallest-text bold-font">LOREM IPSUM IS</div>
             <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
@@ -88,7 +88,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card>
+        <ion-card (click)="openProjectInner('InProgress')">
           <div style="padding: 8px" text-left>
             <div class="smallest-text bold-font">LOREM IPSUM IS</div>
             <div style="margin: 5px 0" class="smallest-text text-grey">printing typesetting lorem ipsum is and industry...</div>
@@ -114,7 +114,7 @@
   <div>
     <ion-slides slidesPerView="2.1">
       <ion-slide>
-        <ion-card no-padding style="border-radius: 10px">
+        <ion-card (click)="eventDetail()" no-padding style="border-radius: 10px">
           <ion-item no-padding>
             <img class="event-banner" item-left no-margin src="assets/img/banner.png">
             <div>
@@ -127,7 +127,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card no-padding style="border-radius: 10px">
+        <ion-card (click)="eventDetail()" no-padding style="border-radius: 10px">
           <ion-item no-padding>
             <img class="event-banner" item-left no-margin src="assets/img/banner.png">
             <div>
@@ -140,7 +140,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card no-padding style="border-radius: 10px">
+        <ion-card (click)="eventDetail()" no-padding style="border-radius: 10px">
           <ion-item no-padding>
             <img class="event-banner" item-left no-margin src="assets/img/banner.png">
             <div>
@@ -166,7 +166,7 @@
             <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="spaceDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
@@ -180,7 +180,7 @@
             <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="spaceDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
@@ -194,7 +194,7 @@
             <div class="smallest-text text-grey">Printing typesetting lorem ipsum is and industry. The industry's standard dummy industry's standard dummy </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="spaceDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
@@ -226,7 +226,7 @@
             </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="equipmentDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
@@ -252,7 +252,7 @@
             </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="equipmentDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
@@ -278,7 +278,7 @@
             </div>
           </div>
           <div text-right>
-            <button ion-button small clear class="smallest-text">
+            <button (click)="equipmentDetail()" ion-button small clear class="smallest-text">
               View Details<ion-icon style="margin-left: 5px" name="ios-arrow-forward"></ion-icon>
             </button>
           </div>
