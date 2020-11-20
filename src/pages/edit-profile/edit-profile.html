@@ -6,43 +6,44 @@
       <ion-title padding text-center><span class="big-text bold-font">View Profile</span></ion-title>
     </div>
     <div text-center class="profile-img-div">
-      <img class="profile-img" src="assets/img/men2.png">
-      <ion-icon class="text-pink edit-icon" name="md-create"></ion-icon>
+      <img (click)="openPicker()" class="profile-img" [src]="profileImgToShow && profileImgToShow!==''?profileImgToShow:'assets/img/user_default.png'">
+      <ion-icon (click)="openPicker()" class="text-pink edit-icon" name="md-create"></ion-icon>
     </div>
 
     <div class="edit-div">
-      <input type="text" class="full-input input-line medium-text" placeholder="First Name">
-      <input type="text" class="full-input input-line medium-text" placeholder="Last Name">
-      <input type="email" class="full-input input-line medium-text" placeholder="Email">
-      <input type="password" class="full-input input-line medium-text" placeholder="Password">
-      <select class="text-grey medium-text input-line">
-        <option>City</option>
-        <option>City1</option>
-        <option>City2</option>
-        <option>City3</option>
+      <input [(ngModel)]="firstName" type="text" class="full-input input-line medium-text" placeholder="First Name">
+      <input [(ngModel)]="lastName" type="text" class="full-input input-line medium-text" placeholder="Last Name">
+      <input [(ngModel)]="email" readonly type="email" class="full-input input-line medium-text" placeholder="Email">
+      <!--<input [(ngModel)]="password" type="password" class="full-input input-line medium-text" placeholder="Password">-->
+      <select id="country" (change)="selectCountry()" [(ngModel)]="country" class="text-grey medium-text input-line">
+        <option value="country">Country</option>
+        <option *ngFor="let country of countryList" value="{{country.name}}">{{country.name}}</option>
+      </select>
+      <select id="state" (change)="selectState()"  [(ngModel)]="state" class="text-grey medium-text input-line">
+        <option value="state">State</option>
+        <option *ngFor="let state of stateList" value="{{state.name}}">{{state.name}}</option>
+      </select>
+      <select id="city"  [(ngModel)]="city" (change)="selectCity()" class="text-grey medium-text input-line">
+        <option value="city">City</option>
+        <option *ngFor="let city of cityList" value="{{city.name}}">{{city.name}}</option>
       </select>
 
-      <select class="text-grey medium-text input-line">
-        <option>Country</option>
-        <option>Country1</option>
-        <option>Country2</option>
-        <option>Country3</option>
-      </select>
-      <input type="text" class="full-input input-line medium-text" placeholder="Address Line 1">
-      <input type="text" class="full-input input-line medium-text" placeholder="Address Line 2">
 
-      <select class="text-grey medium-text input-line">
+      <input [(ngModel)]="address1" type="text" class="full-input input-line medium-text" placeholder="Address Line 1">
+      <input [(ngModel)]="address2" type="text" class="full-input input-line medium-text" placeholder="Address Line 2">
+
+      <select [(ngModel)]="gender" class="text-grey medium-text input-line">
         <option>Gender</option>
-        <option>Male</option>
-        <option>Female</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
       </select>
       <div>
-        <ion-datetime no-margin no-padding placeholder="DOB" class="input-line full-input medium-text text-grey" max="{{dobMax}}" displayFormat="DD-MMM-YYYY"></ion-datetime>
+        <ion-datetime [(ngModel)]="dob" no-margin no-padding placeholder="DOB" class="input-line full-input medium-text text-grey" max="{{dobMax}}" displayFormat="DD-MMM-YYYY"></ion-datetime>
       </div>
-      <textarea class="full-input input-line" placeholder="Occupation" rows="3"></textarea>
+      <textarea [(ngModel)]="occupation" class="full-input input-line" placeholder="Occupation" rows="3"></textarea>
 
       <div class="save-btn-div">
-        <button ion-button full round>Save</button>
+        <button (click)="update()" ion-button full round>Save</button>
       </div>
       <div (click)="deleteAccount()" text-center padding class="small-text text-dark">Delete my account</div>
     </div>

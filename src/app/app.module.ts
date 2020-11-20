@@ -12,6 +12,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { UtilProvider } from '../providers/util/util';
+import {FCM} from "@ionic-native/fcm";
+import {Facebook} from "@ionic-native/facebook";
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +48,9 @@ export function createTranslateLoader(http: HttpClient) {
     Camera,
     SplashScreen,
     StatusBar,
+    FCM,
+    Facebook,
+    SocialSharing,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UtilProvider
   ]

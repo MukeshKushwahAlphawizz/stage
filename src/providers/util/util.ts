@@ -35,7 +35,7 @@ export class UtilProvider {
       this.loading.present();
     }
   }
-  presentLoader(msg) {
+  presentLoader(msg?) {
     if (this.loader){
       this.dismissLoader();
     }else{
@@ -126,7 +126,7 @@ export class UtilProvider {
         destinationType: this.camera.DestinationType.DATA_URL
       }).then((imageData) => {
         // this.backgroundMode.disable();
-        resolve('data:image/png;base64,' + imageData)
+        resolve(imageData)
       }, (err) => {
         // this.backgroundMode.disable();
         reject(err);
@@ -144,7 +144,7 @@ export class UtilProvider {
         destinationType: this.camera.DestinationType.DATA_URL
       }).then((imageData) => {
         //this.backgroundMode.disable();
-        resolve('data:image/png;base64,' + imageData)
+        resolve(imageData)
       }, (err) => {
         //this.backgroundMode.disable();
         reject(err);

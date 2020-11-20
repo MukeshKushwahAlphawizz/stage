@@ -5,7 +5,7 @@
     <form padding [formGroup]="signUpForm">
       <div class="input-div">
         <ion-item>
-          <ion-label floating><img class="input-icon" src="assets/img/email.png"><span margin-left>Email/Mobile No.</span></ion-label>
+          <ion-label floating><img class="input-icon" src="assets/img/email.png"><span margin-left>Email</span></ion-label>
           <ion-input class='full-input' type="email" formControlName="email"></ion-input>
         </ion-item>
         <div>
@@ -53,10 +53,10 @@
           </ng-container>
         </div>
       </div>
-      <button  class="login-btn small-text" (click)="signUp()" ion-button round>Sign Up</button>
+      <button [disabled]="signUpForm.invalid"  class="login-btn small-text" (click)="signUp()" ion-button round>Sign Up</button>
     </form>
     <div class="social-div top-margin">
-      <span><img class="social-icon" src="assets/img/fb.png"></span>
+      <span><img (click)="fbLogin()" class="social-icon" src="assets/img/fb.png"></span>
       <span margin-left margin-right><img class="social-icon" src="assets/img/insta.png"></span>
       <span><img class="social-icon" src="assets/img/twitter.png"></span>
     </div>

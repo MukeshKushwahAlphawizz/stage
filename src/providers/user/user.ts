@@ -1,14 +1,24 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Api } from '../api/api';
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class User {
 
-  register : any = 'Authentication/Register';
-  loginUrl : any = 'Authentication/Login';
-  socialLoginUrl : any = 'Authentication/SocialLogin';
+  register : any = 'Authentication/register';
+  loginUrl : any = 'Authentication/login';
+  socialLoginUrl : any = 'SocialLogin/Login';
   forgot_pass : any = 'Authentication/forgot_pass';
+  changepassword : any = 'Authentication/changepassword';
+  delete_account : any = 'Authentication/delete_account';
+  profile_update : any = 'Authentication/profile_update';
+  logoutUrl : any = 'Authentication/logout';
+  get_countries : any = 'Authentication/get_countries';
+  get_states : any = 'Authentication/get_states';
+  get_cities : any = 'Authentication/get_cities';
+  forgot_password : any = 'Authentication/forgot_password';
+  contact_us : any = 'Authentication/contact_us';
 
   constructor(public api: Api) { }
 
@@ -28,9 +38,44 @@ export class User {
   }
 
   forgotPassword(accountInfo: any) {
-    let seq = this.api.post(this.forgot_pass, accountInfo).share();
+    let seq = this.api.post(this.forgot_password, accountInfo).share();
     return seq;
   }
-
-
+  changePassword(data: any,token:any) {
+    let header = new HttpHeaders({'Authorization':token});
+    let seq = this.api.post(this.changepassword, data,{headers:header}).share();
+    return seq;
+  }
+  deleteAccount(data: any,token:any) {
+      let header = new HttpHeaders({'Authorization':token});
+      let seq = this.api.post(this.delete_account, data,{headers:header}).share();
+      return seq;
+  }
+  updateProfile(data: any,token:any) {
+      let header = new HttpHeaders({'Authorization':token});
+      let seq = this.api.post(this.profile_update, data,{headers:header}).share();
+      return seq;
+  }
+  logout(token:any) {
+      let header = new HttpHeaders({'Authorization':token});
+      let seq = this.api.get(this.logoutUrl, '',{headers:header}).share();
+      return seq;
+  }
+  contactUs(data: any,token:any) {
+      let header = new HttpHeaders({'Authorization':token});
+      let seq = this.api.post(this.contact_us, data,{headers:header}).share();
+      return seq;
+  }
+  getCountry() {
+      let seq = this.api.get(this.get_countries).share();
+      return seq;
+  }
+  getState(data: any) {
+      let seq = this.api.post(this.get_states, data).share();
+      return seq;
+  }
+  getCity(data: any) {
+      let seq = this.api.post(this.get_cities, data).share();
+      return seq;
+  }
 }

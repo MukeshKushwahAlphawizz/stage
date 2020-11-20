@@ -1,12 +1,12 @@
-<ion-menu [content]="content" type="overlay">
+<ion-menu [content]="content" type="overlay" (ionOpen)="openMenu()">
   <ion-content>
     <ion-list>
       <ion-item no-lines class="background-pink user-div">
         <div item-start>
-          <img class="user-img" [src]="userData.image && userData.image!==''?userData.image:'assets/img/men.png'">
+          <img class="user-img" [src]="userData.image && userData.image!==''?userData.image:'assets/img/user_default.png'">
         </div>
         <div>
-          <h3 class="text-white">{{userData.full_name && userData.full_name !==''?userData.full_name:'Brayden Aaron'}}</h3>
+          <h3 class="text-white">{{userData.username && userData.username !==''?userData.username:'No Name'}}</h3>
           <div text-wrap class="text-white bold-font small-text" style="margin-top: 5px">{{userData.email && userData.email !== ''?userData.email:'braydenaaron@mail.com'}}</div>
         </div>
         <ion-icon item-right class="text-white" name="ios-arrow-forward"></ion-icon>
@@ -65,7 +65,7 @@
           <ion-icon class="menu-icons" item-left name="ios-lock-outline"></ion-icon>
           <div>Change Password</div>
         </ion-item>
-        <ion-item menuToggle no-lines class="small-text">
+        <ion-item menuToggle (click)="socialShare()" no-lines class="small-text">
           <img item-left class="menu-img" src="assets/icon/share.png">
           <div [ngClass]="platform.is('ios')?'':'menu-title'">Share With Friends</div>
         </ion-item>

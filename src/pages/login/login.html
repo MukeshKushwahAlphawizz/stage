@@ -29,11 +29,11 @@
           </ng-container>
         </div>
       </div>
-      <button class="login-btn small-text" (click)="login()" ion-button round>Log In</button>
+      <button [disabled]="loginForm.invalid"  class="login-btn small-text" (click)="login()" ion-button round>Log In</button>
       <div (click)="forgotPassword()" class="small-text forgot-pass underline">Forgot Password?</div>
     </form>
     <div class="social-div top-margin">
-      <span><img class="social-icon" src="assets/img/fb.png"></span>
+      <span><img (click)="fbLogin()" class="social-icon" src="assets/img/fb.png"></span>
       <span margin-left margin-right><img class="social-icon" src="assets/img/insta.png"></span>
       <span><img class="social-icon" src="assets/img/twitter.png"></span>
     </div>

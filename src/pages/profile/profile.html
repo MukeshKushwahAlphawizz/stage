@@ -5,13 +5,13 @@
       <!--<ion-icon class="back text-white" name="ios-arrow-back"></ion-icon>-->
       <ion-title padding text-center><span class="big-text bold-font">View Profile</span></ion-title>
     </div>
-    <div text-center class="profile-img-div"><img class="profile-img" src="assets/img/men2.png"></div>
+    <div text-center class="profile-img-div"><img class="profile-img" [src]="userData.image && userData.image!==''?userData.image:'assets/img/user_default.png'"></div>
   </div>
 
   <div padding-left padding-right>
     <ion-item no-lines>
       <div>
-        <div class="big-text bold-font">Brayden aaron</div>
+        <div class="big-text bold-font">{{userData.username}}</div>
         <div style="margin-top: 5px" class="text-grey smaller-text">Lorem ipsum is simply</div>
       </div>
       <button (click)="editProfile()" class="smallest-text edit-btn" no-padding item-right ion-button small round>Edit Profile<span style="padding-left: 5px"><ion-icon name="md-create"></ion-icon></span></button>
