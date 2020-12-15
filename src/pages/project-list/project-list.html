@@ -15,75 +15,27 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="isListEmpty" text-center margin-top padding class="bold-font big-text">No Projects are available</div>
+  <div *ngIf="!isListEmpty">
   <div class="bold-font big-text">Projects List</div>
-  <div margin-top>
-    <ion-card>
-      <ion-item no-lines no-padding>
-        <img item-left class="user-img" src="assets/img/men.png">
-        <div class="small-text">Brayden aaron</div>
-      </ion-item>
-      <div text-wrap class="bold-font small-text">Lorem Ipsum is simply dummy text of the printing.</div>
-      <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
-        Printing typesetting lorem ipsum is and industry. The industry's standard dummy the industry's standard dummy
-        <span class="yello-text smallest-text" style="float: right">IN PROGRESS</span>
-      </div>
-    </ion-card>
+    <div margin-top *ngFor="let item of projectList">
+      <ion-card>
+        <ion-item no-lines no-padding>
+          <img item-left class="user-img" [src]="item.profile_pic && item.profile_pic !==''?item.profile_pic:'assets/img/men.png'">
+          <div class="small-text">{{item.email}}</div>
+        </ion-item>
+        <div text-wrap class="bold-font small-text">{{item.title}}</div>
+        <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
+          {{item.description}}
+          <span class="yello-text smallest-text" style="float: right">{{item.status}}</span>
+        </div>
+      </ion-card>
+    </div>
   </div>
-
-  <div margin-top>
-    <ion-card>
-      <ion-item no-lines no-padding>
-        <img item-left class="user-img" src="assets/img/women.png">
-        <div class="small-text">Alexa aaron</div>
-      </ion-item>
-      <div text-wrap class="bold-font small-text">Lorem Ipsum is simply dummy text of the printing.</div>
-      <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
-        Printing typesetting lorem ipsum is and industry. The industry's standard dummy the industry's standard dummy
-        <span class="green-text smallest-text" style="float: right">COMPLETED</span>
-      </div>
-    </ion-card>
-  </div>
-
-  <div margin-top>
-    <ion-card>
-      <ion-item no-lines no-padding>
-        <img item-left class="user-img" src="assets/img/men2.png">
-        <div class="small-text">John aaron</div>
-      </ion-item>
-      <div text-wrap class="bold-font small-text">Lorem Ipsum is simply dummy text of the printing.</div>
-      <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
-        Printing typesetting lorem ipsum is and industry. The industry's standard dummy the industry's standard dummy
-        <span class="yello-text smallest-text" style="float: right">IN PROGRESS</span>
-      </div>
-    </ion-card>
-  </div>
-
-  <div margin-top>
-    <ion-card>
-      <ion-item no-lines no-padding>
-        <img item-left class="user-img" src="assets/img/men.png">
-        <div class="small-text">Brayden aaron</div>
-      </ion-item>
-      <div text-wrap class="bold-font small-text">Lorem Ipsum is simply dummy text of the printing.</div>
-      <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
-        Printing typesetting lorem ipsum is and industry. The industry's standard dummy the industry's standard dummy
-        <span class="yello-text smallest-text" style="float: right">IN PROGRESS</span>
-      </div>
-    </ion-card>
-  </div>
-
-  <div margin-top>
-    <ion-card>
-      <ion-item no-lines no-padding>
-        <img item-left class="user-img" src="assets/img/men.png">
-        <div class="small-text">Brayden aaron</div>
-      </ion-item>
-      <div text-wrap class="bold-font small-text">Lorem Ipsum is simply dummy text of the printing.</div>
-      <div style="margin-top: 5pt" text-wrap class="text-grey small-text">
-        Printing typesetting lorem ipsum is and industry. The industry's standard dummy the industry's standard dummy
-        <span class="yello-text smallest-text" style="float: right">IN PROGRESS</span>
-      </div>
-    </ion-card>
-  </div>
-
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

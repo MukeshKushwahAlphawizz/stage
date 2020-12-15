@@ -12,7 +12,6 @@ export class AddPostPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPostPage');
   }
 
   openAddEvents() {

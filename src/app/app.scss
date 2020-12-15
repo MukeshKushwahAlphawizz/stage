@@ -76,3 +76,29 @@ button{
 .card-shadow{
   box-shadow: 2px 2px 5px 1px #e0e0e0;
 }
+.has-refresher > .scroll-content{
+  border-top: none !important;
+}
+
+.input-cover{
+  display: none;
+}
+
+.fileInput label {
+  color: #717171;
+  background-color: white;
+  display: inline-block;
+  cursor: pointer;
+  padding: .5em 1em;
+  border: 1px solid #ccc;
+}
+
+input#attachment {
+  display: none;
+}
+.attachment-img{
+  height: 90pt;
+  width: 90pt;
+  object-fit: cover;
+  margin: 10pt 0;
+}

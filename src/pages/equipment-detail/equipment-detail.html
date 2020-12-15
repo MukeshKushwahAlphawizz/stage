@@ -1,40 +1,39 @@
 <ion-content>
   <ion-icon (click)="back()" class="back-icon text-black" name="ios-arrow-back"></ion-icon>
-  <img class="banner" src="assets/img/equipment-banner.png">
+  <img class="banner" [src]="equipDetail.attachment && equipDetail.attachment !==''&& equipDetail.attachment !=='http://15.206.103.57/Stage//'?equipDetail.attachment:'assets/img/equipment-banner.png'">
   <div padding>
-    <div class="bold-font medium-text">PRINTING TYPESET LOREM IPSUM IS AND INDUSTRY IS AND INDUSTRY.</div>
-    <div margin-top class="small-text text-grey">Standard dummy lorem ipsum is simply dummy text of the printing
-      lorem ipsum is simply dummy text of the printing.</div>
+    <div class="bold-font medium-text">{{equipDetail.equipment_name}}</div>
+    <div margin-top class="small-text text-grey">{{equipDetail.description}}</div>
 
     <div margin-top padding-top class="medium-text">Equipment Rate</div>
     <ion-item margin-top no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Hours</ion-label>
       <ion-checkbox></ion-checkbox>
-      <div item-right class="normal-font no-margin">$90</div>
+      <div item-right class="normal-font no-margin">${{equipDetail.rate_per_hour}}</div>
     </ion-item>
     <ion-item no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Day</ion-label>
       <ion-checkbox checked></ion-checkbox>
-      <div item-right class="normal-font no-margin">$900</div>
+      <div item-right class="normal-font no-margin">${{equipDetail.rate_per_day}}</div>
     </ion-item>
     <ion-item no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Month</ion-label>
       <ion-checkbox></ion-checkbox>
-      <div item-right class="normal-font no-margin">$2000</div>
+      <div item-right class="normal-font no-margin">${{equipDetail.rate_per_month}}</div>
     </ion-item>
 
-    <div margin-top class="bold-font medium-text">Equiment Training <span class="right-align normal-font">5 Day</span></div>
+    <div margin-top class="bold-font medium-text">Equiment Training <span class="right-align normal-font">{{equipDetail.no_of_training_days}} Days</span></div>
 
     <div margin-top padding-top class="medium-text">Availability</div>
     <div margin-top class="small-text text-grey">Available</div>
-    <div margin-top class="normal-font small-text text-grey">From-18-Aug-200<span class="right-align">To-22-Aug-2020</span></div>
+    <div margin-top class="normal-font small-text text-grey">From-{{equipDetail.available_from}}<span class="right-align">To-{{equipDetail.available_to}}</span></div>
     <div margin-top class="small-text text-grey">None Available</div>
-    <div margin-top class="normal-font small-text text-grey">From-23-Aug-200<span class="right-align">To-25-Aug-2020</span></div>
+    <div margin-top class="normal-font small-text text-grey">From-{{equipDetail.none_available_from}}<span class="right-align">To-{{equipDetail.none_available_to}}</span></div>
 
     <div margin-top padding-top class="medium-text">Equipment Owner Details</div>
-    <div margin-top class="small-text text-grey">Full Name<span class="right-align">Name Here</span></div>
-    <div margin-top class="small-text text-grey">Mobile Number<span class="right-align normal-font">9977757575</span></div>
-    <div margin-top class="small-text text-grey">Email<span class="right-align">dummy@gmail.com</span></div>
+    <div margin-top class="small-text text-grey">Full Name<span class="right-align">{{equipDetail.first_name+' '+equipDetail.last_name}}</span></div>
+    <div margin-top class="small-text text-grey">Mobile Number<span class="right-align normal-font">{{equipDetail.mobile}}</span></div>
+    <div margin-top class="small-text text-grey">Email<span class="right-align">{{equipDetail.email}}</span></div>
 
   </div>
   <div margin-top class="saperator"></div>

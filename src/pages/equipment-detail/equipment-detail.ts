@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EquipmentDetailPage {
 
+  equipDetail: any = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.equipDetail = navParams.data.equip;
   }
 
   ionViewDidLoad() {

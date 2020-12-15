@@ -2,15 +2,14 @@
   <ion-icon (click)="back()" class="back-icon text-black" name="ios-arrow-back"></ion-icon>
   <img class="banner" src="assets/img/rent-banner.png">
   <div padding>
-    <div class="bold-font medium-text">PRINTING TYPESET LOREM IPSUM IS AND INDUSTRY IS AND INDUSTRY.</div>
-    <div margin-top class="small-text text-grey">What is lorem ipsum? lorem ipsum is simply dummy text of the printing
-      lorem ipsum is simply dummy text of the printing.</div>
+    <div class="bold-font medium-text">{{spaceData.space_name}}</div>
+    <div margin-top class="small-text text-grey">{{spaceData.description}}</div>
 
-    <div padding-top margin-top class="small-text text-grey">Space Area<span class="right-align normal-font">500 Square Feet</span></div>
-    <div margin-top class="small-text text-grey">Start Date<span class="right-align normal-font">14-Aug-2020</span></div>
-    <div margin-top class="small-text text-grey">End Date<span class="right-align normal-font">30-Aug-2020</span></div>
+    <div padding-top margin-top class="small-text text-grey">Space Area<span class="right-align normal-font">{{spaceData.area}} Square Feet</span></div>
+    <div margin-top class="small-text text-grey">Start Date<span class="right-align normal-font">{{spaceData.start_date}}</span></div>
+    <div margin-top class="small-text text-grey">End Date<span class="right-align normal-font">{{spaceData.end_date}}</span></div>
 
-    <div margin-top padding-top class="medium-text bold-font">Space Price<span class="right-align normal-font">$2000</span></div>
+    <div margin-top padding-top class="medium-text bold-font">Space Price<span class="right-align normal-font">${{spaceData.price}}</span></div>
 
   </div>
   <div margin-top class="saperator"></div>

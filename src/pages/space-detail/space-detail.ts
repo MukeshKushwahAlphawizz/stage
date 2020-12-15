@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SpaceDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-space-detail',
@@ -15,7 +8,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SpaceDetailPage {
 
+  spaceData : any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.spaceData = navParams.data.space;
   }
 
   ionViewDidLoad() {

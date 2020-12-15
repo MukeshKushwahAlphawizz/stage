@@ -9,7 +9,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventCompletePage {
 
+  eventDetails:any={};
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.eventDetails = navParams.data.event;
   }
 
   ionViewDidLoad() {
