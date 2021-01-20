@@ -77,6 +77,30 @@ export class UtilProvider {
     }
   }
 
+  presentConfirmgo(title, msg) {
+    return new Promise((resolve, reject) => {
+      let alert = this.alertCtrl.create({
+        title: title,
+        message: msg,
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              reject();
+            }
+          },
+          {
+            text: 'Ok',
+            handler: () => {
+              resolve();
+            }
+          }
+        ]
+      });
+      alert.present();
+    })
+  }
   presentToast(message) {
     this.toast = this.toastCtrl.create({
       message: message,

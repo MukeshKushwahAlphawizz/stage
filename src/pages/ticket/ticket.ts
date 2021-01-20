@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TicketPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -17,8 +11,34 @@ export class TicketPage {
 
   type:any = 'event'
   banner : any = 'assets/img/banner.png'
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.type = navParams.data.type;
+  spaceData: any;
+  spacedatago: any;
+  detailData: any;
+  ticketdata: any;
+  bookingtype: any;
+  ticketdataextra: any;
+  constructor(public navCtrl: NavController,
+     public storage: Storage,
+     public navParams: NavParams) {
+    // this.type = navParams.data.type;
+    this.detailData = navParams.data.detail;
+    this.bookingtype = this.detailData.data.booking_type;
+    if(this.bookingtype=='Space'){
+      this.ticketdata = this.detailData.data.sapce_info[0];
+    }
+    if(this.bookingtype=='Equipment'){
+      this.ticketdata = this.detailData.data.equipment_info[0];
+    }
+    if(this.bookingtype=='Event'){
+      this.ticketdata = this.detailData.data.event_info[0];
+      this.ticketdataextra = this.detailData.data;
+    }
+    this.type = 'space';
+    // this.storage.get('spaceDetail').then(spaceDetail => {
+    //   this.spaceData = JSON.parse(spaceDetail);
+    //   this.spacedatago =this.spaceData.data.sapce_info[0];
+    //   console.log(this.spacedatago.space_name);
+    // })
     this.setupTicket();
   }
 
@@ -30,12 +50,12 @@ export class TicketPage {
   }
 
   setupTicket() {
-    switch (this.type){
-      case 'event': this.setEventTicket()
+    switch (this.bookingtype){
+      case 'Event': this.setEventTicket()
         break;
-      case 'equipment': this.setEquimentTicket()
+      case 'Equipment': this.setEquimentTicket()
         break;
-      case 'space': this.setSpaceTicket();
+      case 'Space': this.setSpaceTicket();
         break;
     }
   }

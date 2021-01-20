@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-icon (click)="back()" class="back-icon text-black" name="ios-arrow-back"></ion-icon>
+  <ion-icon (click)="back()" class="back-icon text-black" style="color:black;" name="ios-arrow-back"></ion-icon>
   <img class="banner" [src]="equipDetail.attachment && equipDetail.attachment !==''&& equipDetail.attachment !=='http://15.206.103.57/Stage//'?equipDetail.attachment:'assets/img/equipment-banner.png'">
   <div padding>
     <div class="bold-font medium-text">{{equipDetail.equipment_name}}</div>
@@ -8,17 +8,17 @@
     <div margin-top padding-top class="medium-text">Equipment Rate</div>
     <ion-item margin-top no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Hours</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [ngModel]="checkedIdx == 0"  (click)="godata(equipDetail.rate_per_hour)" (ngModelChange)="$event ? checkedIdx = 0 : checkedIdx = -1" [disabled]="checkedIdx >= 0 && checkedIdx != 0"></ion-checkbox>
       <div item-right class="normal-font no-margin">${{equipDetail.rate_per_hour}}</div>
     </ion-item>
     <ion-item no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Day</ion-label>
-      <ion-checkbox checked></ion-checkbox>
+      <ion-checkbox [ngModel]="checkedIdx == 1"  (click)="godata(equipDetail.rate_per_day)" (ngModelChange)="$event ? checkedIdx = 1 : checkedIdx = -1" [disabled]="checkedIdx >= 0 && checkedIdx != 1"></ion-checkbox>
       <div item-right class="normal-font no-margin">${{equipDetail.rate_per_day}}</div>
     </ion-item>
     <ion-item no-lines no-padding class="medium-text bold-font">
       <ion-label>Per Month</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [ngModel]="checkedIdx == 2"  (click)="godata(equipDetail.rate_per_month)" (ngModelChange)="$event ? checkedIdx = 2 : checkedIdx = -1" [disabled]="checkedIdx >= 0 && checkedIdx != 2"></ion-checkbox>
       <div item-right class="normal-font no-margin">${{equipDetail.rate_per_month}}</div>
     </ion-item>
 

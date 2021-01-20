@@ -48,6 +48,7 @@ export class SpaceListPage {
         }
         this.user.getSpaceList(data, user.Authorization).subscribe(res => {
           let resp: any = res;
+          // console.log(res);
           if (resp.status) {
             resolve(resp.data)
             this.pageNumber++;

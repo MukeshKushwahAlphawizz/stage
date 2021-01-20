@@ -57,7 +57,7 @@ export class AddSpacePage {
       this.util.presentLoader();
       this.user.addSpaceData(formData,this.userData.Authorization).subscribe(res=>{
         let resp : any =res;
-        if (resp.status){
+        // if (resp.status){
           this.util.presentAlert('',resp.message);
           this.space = {
             space_name:'',
@@ -75,7 +75,7 @@ export class AddSpacePage {
           }
           this.attachmentToShow='';
           this.navCtrl.popToRoot();
-        }
+        // }
         setTimeout(()=>{
           this.util.dismissLoader();
         },500);

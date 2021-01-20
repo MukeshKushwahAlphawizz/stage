@@ -70,4 +70,7 @@ export class MenuPage {
   socialShare() {
     this.share.share('','','','').then(succ=>{}).catch(err=>{});
   }
+  goProfile(){
+    this.navCtrl.push('ProfilePage',{detail:'showArrow'});
+  }
 }

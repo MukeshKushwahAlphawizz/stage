@@ -20,10 +20,12 @@
         <option *ngFor="let country of countryList" value="{{country.name}}">{{country.name}}</option>
       </select>
       <select id="state" (change)="selectState()"  [(ngModel)]="state" class="text-grey medium-text input-line">
+        <option value="{{state}}" *ngIf="state!=''">{{state}}</option>
         <option value="state">State</option>
         <option *ngFor="let state of stateList" value="{{state.name}}">{{state.name}}</option>
       </select>
       <select id="city"  [(ngModel)]="city" (change)="selectCity()" class="text-grey medium-text input-line">
+        <option value="{{city}}" *ngIf="city!=''">{{city}}</option>
         <option value="city">City</option>
         <option *ngFor="let city of cityList" value="{{city.name}}">{{city.name}}</option>
       </select>
@@ -41,7 +43,7 @@
         <ion-datetime [(ngModel)]="dob" no-margin no-padding placeholder="DOB" class="input-line full-input medium-text text-grey" max="{{dobMax}}" displayFormat="DD-MMM-YYYY"></ion-datetime>
       </div>
       <textarea [(ngModel)]="occupation" class="full-input input-line" placeholder="Occupation" rows="3"></textarea>
-
+      <textarea [(ngModel)]="about" class="full-input input-line" placeholder="About" rows="3"></textarea>
       <div class="save-btn-div">
         <button (click)="update()" ion-button full round>Save</button>
       </div>

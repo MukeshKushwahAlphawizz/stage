@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ViewProjectPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,14 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'view-project.html',
 })
 export class ViewProjectPage {
+  viewdetail: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.viewdetail = navParams.data.detail;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewProjectPage');
   }
-
+  goInbox(item){
+    this.navCtrl.push('InboxPage',{detail:item});
+  }
   back() {
     this.navCtrl.pop();
   }

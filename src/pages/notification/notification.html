@@ -14,63 +14,57 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <ion-refresher class="pull-refresh" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div margin-top>
-    <div class="top-margin small-text text-dark">Today<span class="right-align">Clear all</span></div>
-    <div>
-      <ion-card class="card-item">
-        <ion-item no-lines no-padding>
-          <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
-          <div>
-            <div class="medium-text bold-font">What is Lorem Ipsum<span class="right-align normal-font nobold-font smaller-text text-pink">Now</span></div>
-            <div text-wrap class="top-margin smaller-text text-grey">lorem ipsum is simply dummy text of the simply dummy text of the printing.</div>
-          </div>
-        </ion-item>
-      </ion-card>
-    </div>
-    <div>
-      <ion-card class="card-item">
-        <ion-item no-lines no-padding>
-          <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
-          <div>
-            <div class="medium-text bold-font">What is Lorem Ipsum<span class="right-align normal-font nobold-font smaller-text text-pink">4 mins ago</span></div>
-            <div text-wrap class="top-margin smaller-text text-grey">lorem ipsum is simply dummy text of the simply dummy text of the printing.</div>
-          </div>
-        </ion-item>
-      </ion-card>
-    </div>
-    <div>
-      <ion-card class="card-item">
-        <ion-item no-lines no-padding>
-          <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
-          <div>
-            <div class="medium-text bold-font">What is Lorem Ipsum<span class="right-align normal-font nobold-font smaller-text text-pink">4 mins ago</span></div>
-            <div text-wrap class="top-margin smaller-text text-grey">lorem ipsum is simply dummy text of the simply dummy text of the printing.</div>
-          </div>
-        </ion-item>
-      </ion-card>
-    </div>
-    <div padding-top class="top-margin small-text text-dark">Yesterday<span class="right-align">Clear</span></div>
-    <div>
-      <ion-card class="card-item">
-        <ion-item no-lines no-padding>
-          <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
-          <div>
-            <div class="medium-text bold-font">What is Lorem Ipsum<span class="right-align normal-font nobold-font smaller-text text-pink">2:01 am</span></div>
-            <div text-wrap class="top-margin smaller-text text-grey">lorem ipsum is simply dummy text of the simply dummy text of the printing.</div>
-          </div>
-        </ion-item>
-      </ion-card>
-    </div>
-    <div>
-      <ion-card class="card-item">
-        <ion-item no-lines no-padding>
-          <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
-          <div>
-            <div class="medium-text bold-font">What is Lorem Ipsum<span class="right-align normal-font nobold-font smaller-text text-pink">12:06 pm</span></div>
-            <div text-wrap class="top-margin smaller-text text-grey">lorem ipsum is simply dummy text of the simply dummy text of the printing.</div>
-          </div>
-        </ion-item>
-      </ion-card>
+    <div *ngIf="isListEmpty" class="big-text" margin-top padding text-center>No Notifications are available.</div>
+    <div *ngIf="!isListEmpty">
+      <div class="top-margin small-text text-dark" *ngIf="isTodayAvailable">Today<span class="right-align"
+          (click)="clear(true)">Clear all</span></div>
+      <div *ngFor="let item of notificationList">
+        <ion-card class="card-item" *ngIf="item.isToday">
+          <ion-item no-lines no-padding>
+            <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
+            <div>
+              <div class="medium-text bold-font">{{item.title}}<span
+                  class="right-align normal-font nobold-font smaller-text text-pink">Now</span></div>
+              <div text-wrap class="top-margin smaller-text text-grey">{{item.message}}</div>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div padding-top class="top-margin small-text text-dark" *ngIf="isYesterdayAvailable">Yesterday<span
+          class="right-align" (click)="clear(false)">Clear</span></div>
+      <div *ngFor="let item of notificationList">
+        <ion-card class="card-item" *ngIf="item.isYesterday">
+          <ion-item no-lines no-padding>
+            <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
+            <div>
+              <div class="medium-text bold-font">{{item.title}}<span
+                  class="right-align normal-font nobold-font smaller-text text-pink">2:01 am</span></div>
+              <div text-wrap class="top-margin smaller-text text-grey">{{item.message}}</div>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div padding-top class="top-margin small-text text-dark" *ngIf="isPast">Past<span class="right-align" (click)="clear(false)">Clear All</span>
+      </div>
+      <div *ngFor="let item of notificationList">
+        <ion-card class="card-item" *ngIf="item.isOld">
+          <ion-item no-lines no-padding>
+            <ion-icon item-left class="notif-icon text-pink" name="ios-notifications-outline"></ion-icon>
+            <div>
+              <div class="medium-text bold-font">{{item.title}}<span
+                  class="right-align normal-font nobold-font smaller-text text-pink">1 day ago</span></div>
+              <div text-wrap class="top-margin smaller-text text-grey">{{item.message}}</div>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
     </div>
   </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

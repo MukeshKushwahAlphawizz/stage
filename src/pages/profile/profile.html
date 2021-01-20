@@ -2,97 +2,70 @@
   <div>
     <img class="bg" src="assets/img/profile-bg.png">
     <div class="row" text-center>
-      <!--<ion-icon class="back text-white" name="ios-arrow-back"></ion-icon>-->
+      <ion-icon (click)="back()" class="back text-white" name="ios-arrow-back" *ngIf="showArrow=='showArrow'">
+      </ion-icon>
       <ion-title padding text-center><span class="big-text bold-font">View Profile</span></ion-title>
     </div>
-    <div text-center class="profile-img-div"><img class="profile-img" [src]="userData.image && userData.image!==''?userData.image:'assets/img/user_default.png'"></div>
+    <div text-center class="profile-img-div"><img class="profile-img"
+        [src]="userData.image && userData.image!==''?userData.image:'assets/img/user_default.png'"></div>
   </div>
 
   <div padding-left padding-right>
     <ion-item no-lines>
       <div>
         <div class="big-text bold-font">{{userData.username}}</div>
-        <div style="margin-top: 5px" class="text-grey smaller-text">Lorem ipsum is simply</div>
+        <div style="margin-top: 5px" class="text-grey smaller-text">{{userData.occupation}}</div>
       </div>
-      <button (click)="editProfile()" class="smallest-text edit-btn" no-padding item-right ion-button small round>Edit Profile<span style="padding-left: 5px"><ion-icon name="md-create"></ion-icon></span></button>
+      <button (click)="editProfile()" class="smallest-text edit-btn" no-padding item-right ion-button small round>Edit
+        Profile<span style="padding-left: 5px">
+          <ion-icon name="md-create"></ion-icon>
+        </span></button>
     </ion-item>
 
-    <round-segment margin-left margin-right (output)="selectSegment($event)" leftTitle="Profile" rightTitle="Reviews"></round-segment>
+    <round-segment margin-left margin-right (output)="selectSegment($event)" leftTitle="Profile" rightTitle="Reviews">
+    </round-segment>
 
   </div>
 
   <div *ngIf="!isReviewSelected">
     <div margin-left margin-right padding>
       <div class="big-text bold-font">About</div>
-      <div text-wrap style="margin-top: 5pt" class="text-grey smaller-text">Lorem ipsum is simply dummy text of printing and typesetting industry.Lorem ipsum is simply dummy text of printing ever is simply dummy text of printing ever since the 1500$, when an unlock printer took a gallary...
-        <span class="text-pink" style="margin-left: 5pt">Read More</span></div>
+      <div text-wrap style="margin-top: 5pt" class="text-grey smaller-text">
+        {{userData.about  | slice:0:showlimit}}
+        <span class="text-pink" style="margin-left: 5pt" *ngIf="show=='yes' && testlen>100" (click)="showMorego()">Show
+          More</span>
+        <span class="text-pink" style="margin-left: 5pt" *ngIf="show=='no'" (click)="showLessgo()">Show Less</span>
+      </div>
     </div>
     <div style="padding-left: 8pt" margin class="row" text-center>
       <div col-3>
-        <circle-progress
-          [percent]="100"
-          [radius]="32"
-          [outerStrokeWidth]="5"
-          [innerStrokeWidth]="5"
-          [outerStrokeColor]="'#EC5368'"
-          [innerStrokeColor]="'#f4f4f4'"
-          [animation]="true"
-          [subtitleFontSize]="30"
-          [showSubtitle]="false"
-          [showUnits]="true"
-          [titleColor]="'#EC5368'">
+        <circle-progress [percent]="100" [radius]="32" [outerStrokeWidth]="5" [innerStrokeWidth]="5"
+          [outerStrokeColor]="'#EC5368'" [innerStrokeColor]="'#f4f4f4'" [animation]="true" [subtitleFontSize]="30"
+          [showSubtitle]="false" [showUnits]="true" [titleColor]="'#EC5368'">
         </circle-progress>
         <div class="smaller-text text-grey">What is Lorem ipsum</div>
       </div>
 
       <div col-3>
-        <circle-progress
-          [percent]="100"
-          [radius]="32"
-          [outerStrokeWidth]="5"
-          [innerStrokeWidth]="5"
-          [outerStrokeColor]="'#EC5368'"
-          [innerStrokeColor]="'#f4f4f4'"
-          [animation]="true"
-          [subtitleFontSize]="30"
-          [showSubtitle]="false"
-          [showUnits]="true"
-          [titleColor]="'#EC5368'">
+        <circle-progress [percent]="100" [radius]="32" [outerStrokeWidth]="5" [innerStrokeWidth]="5"
+          [outerStrokeColor]="'#EC5368'" [innerStrokeColor]="'#f4f4f4'" [animation]="true" [subtitleFontSize]="30"
+          [showSubtitle]="false" [showUnits]="true" [titleColor]="'#EC5368'">
         </circle-progress>
         <div class="smaller-text text-grey">What is Lorem ipsum</div>
       </div>
 
       <div col-3>
-        <circle-progress
-          [percent]="100"
-          [radius]="32"
-          [outerStrokeWidth]="5"
-          [innerStrokeWidth]="5"
-          [outerStrokeColor]="'#EC5368'"
-          [innerStrokeColor]="'#f4f4f4'"
-          [animation]="true"
-          [subtitleFontSize]="30"
-          [showSubtitle]="false"
-          [showUnits]="true"
-          [titleColor]="'#EC5368'">
+        <circle-progress [percent]="100" [radius]="32" [outerStrokeWidth]="5" [innerStrokeWidth]="5"
+          [outerStrokeColor]="'#EC5368'" [innerStrokeColor]="'#f4f4f4'" [animation]="true" [subtitleFontSize]="30"
+          [showSubtitle]="false" [showUnits]="true" [titleColor]="'#EC5368'">
         </circle-progress>
         <div class="smaller-text text-grey">What is Lorem ipsum</div>
       </div>
 
       <div col-3>
-        <circle-progress
-          [percent]="34"
-          [radius]="32"
-          [outerStrokeWidth]="5"
-          [innerStrokeWidth]="5"
-          [outerStrokeColor]="'#EC5368'"
-          [innerStrokeColor]="'#f4f4f4'"
-          [animation]="true"
-          [subtitleFontSize]="30"
-          [showSubtitle]="false"
-          [animationDuration]="300"
-          [showUnits]="true"
-          [titleColor]="'#EC5368'">
+        <circle-progress [percent]="34" [radius]="32" [outerStrokeWidth]="5" [innerStrokeWidth]="5"
+          [outerStrokeColor]="'#EC5368'" [innerStrokeColor]="'#f4f4f4'" [animation]="true" [subtitleFontSize]="30"
+          [showSubtitle]="false" [animationDuration]="300" [showUnits]="true" [titleColor]="'#EC5368'">
         </circle-progress>
         <div class="smaller-text text-grey">What is Lorem ipsum</div>
       </div>
@@ -129,96 +102,27 @@
 
   </div>
   <div *ngIf="isReviewSelected">
+    <div *ngFor="let item of reviewData">
     <div margin padding-left padding-right>
-      <div class="medium-text bold-font">What is Lorem Ipsum</div>
+      <div class="medium-text bold-font">{{item.comment}}</div>
       <ion-item no-lines no-padding style="min-height: 1rem">
-        <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
+        <img item-left no-padding no-margin class="review-user-img" [src]="item.image && item.image !=='' && item.image !=='http://15.206.103.57/Stage//'?item.image:'assets/img/user_default.png'">
         <div>
-          <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
+          <div text-wrap class="text-grey smaller-text">{{item.comment}}</div>
+          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span
+              class="text-black bold-font">{{item.name}}</span> - 15 min ago</div>
         </div>
       </ion-item>
       <div class="row">
-        <span class="rating-count small-text">5.0</span>
-        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
-                            defaultIcon = "ios-star-outline"
-                            activeColor = "#F29529"
-                            defaultColor = "#f4f4f4"
-                            readonly="true"
-                            rating="5"
-                            fontSize = "32px">
-        </ionic3-star-rating></span>
+        <span class="rating-count small-text">{{item.rating}}</span>
+        <span class="left-margin">
+          <ionic3-star-rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#F29529"
+            defaultColor="#f4f4f4" readonly="true" rating="{{item.rating}}" fontSize="32px">
+          </ionic3-star-rating>
+        </span>
       </div>
     </div>
     <div class="saperator"></div>
-
-    <div margin padding-left padding-right>
-      <div class="medium-text bold-font">What is Lorem Ipsum</div>
-      <ion-item no-lines no-padding style="min-height: 1rem">
-        <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
-        <div>
-          <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
-        </div>
-      </ion-item>
-      <div class="row">
-        <span class="rating-count small-text">5.0</span>
-        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
-                                              defaultIcon = "ios-star-outline"
-                                              activeColor = "#F29529"
-                                              defaultColor = "#f4f4f4"
-                                              readonly="true"
-                                              rating="5"
-                                              fontSize = "32px">
-        </ionic3-star-rating></span>
-      </div>
-    </div>
-    <div class="saperator"></div>
-
-    <div margin padding-left padding-right>
-      <div class="medium-text bold-font">What is Lorem Ipsum</div>
-      <ion-item no-lines no-padding style="min-height: 1rem">
-        <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
-        <div>
-          <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
-        </div>
-      </ion-item>
-      <div class="row">
-        <span class="rating-count small-text">5.0</span>
-        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
-                                              defaultIcon = "ios-star-outline"
-                                              activeColor = "#F29529"
-                                              defaultColor = "#f4f4f4"
-                                              readonly="true"
-                                              rating="5"
-                                              fontSize = "32px">
-        </ionic3-star-rating></span>
-      </div>
-    </div>
-    <div class="saperator"></div>
-
-    <div margin padding-left padding-right>
-      <div class="medium-text bold-font">What is Lorem Ipsum</div>
-      <ion-item no-lines no-padding style="min-height: 1rem">
-        <img item-left no-padding no-margin class="review-user-img" src="assets/img/men.png">
-        <div>
-          <div text-wrap class="text-grey smaller-text">What is lorem ipsum</div>
-          <div style="margin-top: 5pt" text-wrap class="text-grey smaller-text">by <span class="text-black bold-font">Brayden aaron</span> - 15 min ago</div>
-        </div>
-      </ion-item>
-      <div class="row">
-        <span class="rating-count small-text">5.0</span>
-        <span class="left-margin"><ionic3-star-rating activeIcon = "ios-star"
-                                              defaultIcon = "ios-star-outline"
-                                              activeColor = "#F29529"
-                                              defaultColor = "#f4f4f4"
-                                              readonly="true"
-                                              rating="5"
-                                              fontSize = "32px">
-        </ionic3-star-rating></span>
-      </div>
-    </div>
-    <div class="saperator"></div>
+  </div>
   </div>
 </ion-content>

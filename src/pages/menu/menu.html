@@ -1,7 +1,7 @@
 <ion-menu [content]="content" type="overlay" (ionOpen)="openMenu()">
   <ion-content>
     <ion-list>
-      <ion-item no-lines class="background-pink user-div">
+      <ion-item no-lines class="background-pink user-div" (click)="goProfile()" menuToggle> 
         <div item-start>
           <img class="user-img" [src]="userData.image && userData.image!==''?userData.image:'assets/img/user_default.png'">
         </div>

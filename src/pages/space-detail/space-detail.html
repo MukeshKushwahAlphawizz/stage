@@ -1,6 +1,6 @@
 <ion-content>
-  <ion-icon (click)="back()" class="back-icon text-black" name="ios-arrow-back"></ion-icon>
-  <img class="banner" src="assets/img/rent-banner.png">
+  <ion-icon (click)="back()" class="back-icon text-black" style="color:black;" name="ios-arrow-back"></ion-icon>
+  <img class="banner" [src]="spaceData.attachment && spaceData.attachment !=='' && spaceData.attachment !=='http://15.206.103.57/Stage//'?spaceData.attachment:'assets/img/rent-banner.png'">
   <div padding>
     <div class="bold-font medium-text">{{spaceData.space_name}}</div>
     <div margin-top class="small-text text-grey">{{spaceData.description}}</div>
@@ -14,8 +14,8 @@
   </div>
   <div margin-top class="saperator"></div>
   <div padding>
-    <div margin-top class="bold-font medium-text">Sub Total <span class="right-align normal-font">$180</span></div>
-    <div margin-top class="bold-font medium-text">Total <span class="right-align normal-font">$130</span></div>
+    <div margin-top class="bold-font medium-text">Sub Total <span class="right-align normal-font">${{spaceData.price}}</span></div>
+    <div margin-top class="bold-font medium-text">Total <span class="right-align normal-font">${{spaceData.price}}</span></div>
   </div>
   <div margin-top class="saperator"></div>
   <div padding>

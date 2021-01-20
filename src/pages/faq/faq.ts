@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the FaqPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {User} from "../../providers";
+import {UtilProvider} from "../../providers/util/util";
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -63,10 +59,27 @@ export class FaqPage {
       isOpen:false
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  feqlist: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public user:User,
+    public util:UtilProvider,
+    public storage:Storage) {
   }
 
   ionViewDidLoad() {
+    this.storage.get('userData').then(userData => {
+      let user: any = JSON.parse(userData);
+      this.util.presentLoader();
+      this.user.faqlist(user.Authorization).subscribe(res => {
+        let resp: any = res;
+        this.feqlist = resp.data;
+        if (resp.status) {
+          this.util.dismissLoader();
+        }
+      }, error => {
+        console.error(error);
+      });
+    })
   }
 
 }

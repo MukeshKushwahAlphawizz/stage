@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {User} from "../../providers";
-import {UtilProvider} from "../../providers/util/util";
-import {Storage} from "@ionic/storage";
-import {Refresher} from "ionic-angular/index";
+import { User } from "../../providers";
+import { App } from "ionic-angular/index";
+import { UtilProvider } from "../../providers/util/util";
+import { Storage } from "@ionic/storage";
+import { Refresher } from "ionic-angular/index";
 
 @IonicPage()
 @Component({
@@ -12,28 +13,27 @@ import {Refresher} from "ionic-angular/index";
 })
 export class ProjectListPage {
 
-  projectList : any = [];
-  pageNumber : any = 1;
-  pageSize : any = 10;
+  projectList: any = [];
+  pageNumber: any = 1;
+  pageSize: any = 10;
   isListEmpty: boolean = false;
+  allproject: any;
   constructor(public navCtrl: NavController,
-              public user:User,
-              public util:UtilProvider,
-              public storage:Storage,
-              public navParams: NavParams) {
+    public user: User,
+    public util: UtilProvider,
+    public app: App,
+    public storage: Storage,
+    public navParams: NavParams) {
+    this.allproject = navParams.data.detail;
   }
 
   ionViewDidLoad() {
-    this.getAllSpace(true).then(data=>{
+    this.getAllSpace(true).then(data => {
       this.projectList = data;
-      (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
-    }).catch(err=>{
-      (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
+      (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
+    }).catch(err => {
+      (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
     });
-  }
-
-  openSpaceDetailPage(space: any) {
-    this.navCtrl.push('SpaceDetailPage',{space:space});
   }
 
   getAllSpace(showLoader) {
@@ -44,7 +44,7 @@ export class ProjectListPage {
           pageNumber: this.pageNumber,
           pageSize: this.pageSize
         }
-        if (showLoader){
+        if (showLoader) {
           this.util.presentLoader();
         }
         this.user.getProjectList(data, user.Authorization).subscribe(res => {
@@ -52,10 +52,10 @@ export class ProjectListPage {
           if (resp.status) {
             resolve(resp.data)
             this.pageNumber++;
-          }else {
+          } else {
             reject('');
           }
-          if (showLoader){
+          if (showLoader) {
             setTimeout(() => {
               this.util.dismissLoader();
             }, 500);
@@ -70,30 +70,37 @@ export class ProjectListPage {
   }
 
   loadMore(infiniteScroll) {
-    setTimeout(()=>{
-      this.getAllSpace(false).then((data)=>{
-        let list : any = data;
+    setTimeout(() => {
+      this.getAllSpace(false).then((data) => {
+        let list: any = data;
         this.projectList = [...this.projectList, ...list];
-        (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
+        (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
         infiniteScroll.complete();
-      }).catch(()=>{
-        (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
+      }).catch(() => {
+        (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
         infiniteScroll.complete();
       })
-    },500)
+    }, 500)
   }
 
   refresh(refresher: Refresher) {
     this.pageNumber = 1;
-    this.getAllSpace(false).then((data)=>{
-      let list : any = data
+    this.getAllSpace(false).then((data) => {
+      let list: any = data
       this.projectList = list;
-      (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
+      (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
       refresher.complete();
-    }).catch(()=>{
+    }).catch(() => {
       refresher.complete();
-      (this.projectList.length>0)?this.isListEmpty=false:this.isListEmpty=true;
+      (this.projectList.length > 0) ? this.isListEmpty = false : this.isListEmpty = true;
     });
   }
-
+  openProjectInner(status: string,data) {
+    this.app.getRootNav().push('ProjectInnerPage', { status: status });
+    if(data=='cancle'){
+      localStorage.setItem("showCancle","show");
+    }else{
+      localStorage.setItem("showCancle","");
+    }
+  }
 }
